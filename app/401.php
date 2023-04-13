@@ -19,9 +19,9 @@
                             <div class="col-lg-6">
                                 <div class="text-center mt-4">
                                     <h1 class="display-1">401</h1>
-                                    <p class="lead">Usuãrio não autorizado</p>
+                                    <p class="lead">Usuário não autorizado</p>
                                     <p>O acesso a este recurso não foi autorizado.</p>
-                                    <a href="index.html">
+                                    <a href="index.php">
                                         <i class="fas fa-arrow-left me-1"></i>
                                         Volte a tela de login
                                     </a>

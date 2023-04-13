@@ -1,3 +1,8 @@
+<?php
+// Inicia a sessão do php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -20,13 +25,25 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Tela de Login</h3></div>
                                     <div class="card-body">
-                                        <form>
+                                        <!--
+                                            Edição do formulário com o método POST e o caminho para o arquivo que fará a action
+                                            após receber os dados e processar o que deve ser realizado. 
+                                            
+                                            Todos os formulários seguirão este padrão. Enviará dados para serem processados nos
+                                            arquivos de action.
+                                         -->
+                                        <form action="./backend/login.action.php" method="post">
+                                            <!-- 
+                                                Todo formulário deverá enviar o nome da action para ser filtrado com um campo
+                                                do tipo hidden.
+                                            -->
+                                            <input type="hidden" name="action_type" value="login"/>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                                                <input class="form-control" id="inputEmail" name="inputEmail" type="email" placeholder="name@example.com" />
                                                 <label for="inputEmail">Email</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
+                                                <input class="form-control" id="inputPassword" name="inputPassword" type="password" placeholder="Password" />
                                                 <label for="inputPassword">Senha</label>
                                             </div>
                                             <div class="form-check mb-3">
@@ -34,13 +51,13 @@
                                                 <label class="form-check-label" for="inputRememberPassword">Lembrar senha</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Esqueci senha de acesso</a>
-                                                <a class="btn btn-primary" href="dashboard.html">Entrar no sistema</a>
+                                                <a class="small" href="#">Esqueci senha de acesso</a> <!-- desabilitado --> 
+                                                <button class="btn btn-primary">Entrar no sistema</button>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Cadastrar nova conta</a></div>
+                                        <div class="small"><a href="register.php">Cadastrar nova conta</a></div>
                                     </div>
                                 </div>
                             </div>

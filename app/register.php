@@ -20,46 +20,45 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Cadastre-se</h3></div>
                                     <div class="card-body">
-                                        <form>
+                                        <!--Definição do método e arquivo de destino dos dados.-->
+                                        <form action="./backend/login.action.php" method="post">
+                                            <!-- Action de criação de um novo usuário -->
+                                            <input type="hidden" name="action_type" value="create"/>
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                                                        <input class="form-control" name="inputCnpj" id="inputFirstName" type="text" placeholder="Enter your first name" />
                                                         <label for="inputFirstName">CNPJ</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating">
-                                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                                                        <input class="form-control" name="inputCompanyName" id="inputLastName" type="text" placeholder="Enter your last name" />
                                                         <label for="inputLastName">Razão social</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                                                <input class="form-control" name="inputUser" id="inputEmail" type="text" placeholder="name@example.com" />
+                                                <label for="inputEmail">Usuário</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" name="inputEmail" id="inputEmail" type="email" placeholder="name@example.com" />
                                                 <label for="inputEmail">Email</label>
                                             </div>
-                                            <div class="row mb-3">
-                                                <div class="col-md-6">
-                                                    <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" />
-                                                        <label for="inputPassword">Senha</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" />
-                                                        <label for="inputPasswordConfirm">Confirmação de senha</label>
-                                                    </div>
-                                                </div>
+                                          
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" name="inputPassword" id="inputPassword" type="password" placeholder="Create a password" />
+                                                <label for="inputPassword">Senha</label>
                                             </div>
+                                          
                                             <div class="mt-4 mb-0">
-                                                <div class="d-grid"><a class="btn btn-primary btn-block" href="index.html">Criar novo cadastro</a></div>
+                                                <button class="btn btn-primary">Criar novo cadastro</button>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="index.html">Já possui conta? Faça login</a></div>
+                                        <div class="small"><a href="index.php">Já possui conta? Faça login</a></div>
                                     </div>
                                 </div>
                             </div>
