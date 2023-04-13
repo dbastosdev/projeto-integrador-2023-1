@@ -1,6 +1,13 @@
 <?php
 // Inicia a sessão do php
 session_start();
+
+// Se o usuário estiver logado, redireciona para o dashboard. Só acessa ao login deslogado. 
+if(!empty($_SESSION["user-data"]["user"])){
+    header("Location: ./dashboard.php");
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>

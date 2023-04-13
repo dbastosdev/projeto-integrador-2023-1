@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+/*
+    Processando a lógica de login para acesso ao dashboard. O dashboard, só poderá ser acessível caso a sessão esteja preenchida. 
+    Dessa forma, caso seja passada a url direta do dashboard, não será possível ser acessada. Somente através do login.
+    TODAS AS PÁGINAS DO DASHBOARD DEVEM IMPLEMENTAR ESSA VALIDAÇÃO.
+*/
+
+if(empty($_SESSION["user-data"]["user"])){
+    header("Location: ./401.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -24,19 +40,19 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Menu</div>
-                            <a class="nav-link" href="dashboard.html">
+                            <a class="nav-link" href="dashboard.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Início
                             </a>
-                            <a class="nav-link" href="students.html">
+                            <a class="nav-link" href="students.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Alunos
                             </a>
-                            <a class="nav-link" href="teachers.html">
+                            <a class="nav-link" href="teachers.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Professores
                             </a>
-                            <a class="nav-link" href="classes.html">
+                            <a class="nav-link" href="classes.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-dumbbell"></i></div>
                                 Modalidades
                             </a>
@@ -44,7 +60,15 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Usuário logado:</div>
-                        Douglas Bastos
+                        <!--Pegando o dado que vem por meio da action de login por meio da seção.-->
+                        <?php echo $_SESSION["user-data"]["user"];?>
+                        <br>
+                        <br>
+                        <!-- <a class="btn btn-dark" href="#">logout</a> -->
+                        <form method="post" action="./backend/login.action.php">
+                            <input type="hidden" name="action_type" value="logout"/>
+                            <button class="btn btn-dark">Sair</button>
+                        </form>
                     </div>
                 </nav>
             </div>

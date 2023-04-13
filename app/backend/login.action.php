@@ -26,6 +26,12 @@ if(!empty($_REQUEST['action_type']) && $_REQUEST['action_type'] == 'login'){
     $login->login($email, $password);
 }
 
+// ACTION DE LOGOUT:
+if(!empty($_REQUEST['action_type']) && $_REQUEST['action_type'] == 'logout'){ 
+
+    $login->logout();
+}
+
 // ACTION DE CREATE NEW USER:
 if(!empty($_REQUEST['action_type']) && $_REQUEST['action_type'] == 'create'){
    

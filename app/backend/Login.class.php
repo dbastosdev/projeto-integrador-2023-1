@@ -28,6 +28,9 @@ class Login{
     }
 
     public function login($email, $password){
+        // Reset da variável global
+        $_SESSION['user-data'] = " ";
+
         // Monta a query
         $sql = "SELECT * FROM users WHERE email = :email AND senha = :senha";
 
@@ -44,7 +47,7 @@ class Login{
         $result = $query->fetch();
         
         if($result > 0){
-            $_SESSION['user'] = $result;
+            $_SESSION['user-data'] = $result;
             header("Location: ../dashboard.php");
             exit;
 
@@ -52,6 +55,12 @@ class Login{
             header("Location: ../401.php");
             exit;
         }
+    }
+
+    public function logout(){
+        $_SESSION['user-data'] = " ";
+        header("Location: ../index.php");
+        exit;
     }
 
     public function create($cnpj, $email,  $password, $user, $companyName){
