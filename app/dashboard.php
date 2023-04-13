@@ -64,7 +64,6 @@ if(empty($_SESSION["user-data"]["user"])){
                         <?php echo $_SESSION["user-data"]["user"];?>
                         <br>
                         <br>
-                        <!-- <a class="btn btn-dark" href="#">logout</a> -->
                         <form method="post" action="./backend/login.action.php">
                             <input type="hidden" name="action_type" value="logout"/>
                             <button class="btn btn-dark">Sair</button>
@@ -113,26 +112,6 @@ if(empty($_SESSION["user-data"]["user"])){
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area me-1"></i>
-                                        Area Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                        Bar Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card">

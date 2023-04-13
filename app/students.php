@@ -1,14 +1,19 @@
 <?php
 session_start();
 
-/*
-    TODAS AS PÁGINAS DO DASHBOARD DEVEM IMPLEMENTAR ESSA VALIDAÇÃO.
-*/
-
+// Valida se o usuário está logado.
 if(empty($_SESSION["user-data"]["user"])){
     header("Location: ./401.php");
     exit;
 }
+
+// Importação da classe Student para listar os usuários
+require_once('./backend/db-config.php');
+require_once('./backend/Student.class.php');
+$student = new Student($pdo);
+
+// Atribui o resultado da consulta ao banco a lista d estudantes
+$studentsLists = $student->index();
 
 ?>
 
@@ -91,37 +96,31 @@ if(empty($_SESSION["user-data"]["user"])){
                                       <tr>
                                         <th scope="col">Nome</th>
                                         <th scope="col">E-mail</th>
-                                        <th scope="col">Data de cadastro</th>
+                                        <th scope="col">Dia do pagamento</th>
                                         <th scope="col">Status de pagamento</th>
+                                        <th scope="col">Modalidade</th>
                                         <th scope="col">Editar aluno</th>
                                         <th scope="col">Excluir aluno</th>
                                       </tr>
                                     </thead>
                                     <tbody>
+                                        <!--
+                                            Início do foreach que passa por cada dado da lista de estudantes e os exibe dentro da lista
+                                        -->
+                                      <?php foreach($studentsLists as $s){ ?>
                                       <tr>
-                                        <td>Bruno</td>
-                                        <td>bruno@gmail.com</td>
-                                        <td>12/03/2023</td>
-                                        <td>Pago</td>
-                                        <td><a href="students-edit.php" class="btn btn-dark">Editar</a></td>
-                                        <td><a href="#" class="btn btn-danger">Deletar</a></td>
+                                        <td><?php echo $s["name"];?></td>
+                                        <td><?php echo $s["email"];?></td>
+                                        <td><?php echo $s["start"];?></td>
+                                        <td><?php echo $s["payment-status"];?></td>
+                                        <td><?php echo $s["sport"];?></td>
+                                        <td><a href="./backend/student.action.php?action_type=edit&id=<?php echo $s['id']; ?>" class="btn btn-dark">Editar</a></td>
+                                        <td><a href="./backend/student.action.php?action_type=delete&id=<?php echo $s['id'];?>" onclick="return confirm('Você confirma a ação de deletar o registro?');" class="btn btn-danger">Deletar</a></td>
                                       </tr>
-                                      <tr>
-                                        <td>Bruno</td>
-                                        <td>bruno@gmail.com</td>
-                                        <td>12/03/2023</td>
-                                        <td>Pago</td>
-                                        <td><a href="students-edit.php" class="btn btn-dark">Editar</a></td>
-                                        <td><a href="#" class="btn btn-danger">Deletar</a></td>
-                                      </tr>
-                                      <tr>
-                                        <td>Bruno</td>
-                                        <td>bruno@gmail.com</td>
-                                        <td>12/03/2023</td>
-                                        <td>Pago</td>
-                                        <td><a href="students-edit.php" class="btn btn-dark">Editar</a></td>
-                                        <td><a href="#" class="btn btn-danger">Deletar</a></td>
-                                      </tr>
+                                      <?php } ?>
+                                      <!--
+                                            fim do foreach
+                                        -->
                                     </tbody>
                                 </table>
                             </div>
@@ -133,7 +132,7 @@ if(empty($_SESSION["user-data"]["user"])){
                                 Cadastro de novos alunos
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form action="./backend/student.action.php" method="post">
                                     <div style="margin-bottom: 20px;" class="form-row">
                                       <div class="form-group col-md-6">
                                         <label for="name">Nome Completo</label>
