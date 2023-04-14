@@ -18,9 +18,10 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-6">
                                 <div class="text-center mt-4">
-                                    <img class="mb-4 img-error" src="assets/img/error-404-monochrome.svg" />
-                                    <p class="lead">Esta página não existe.</p>
-                                    <a href="index.html">
+                                    <img class="mb-4 img-error" src="assets/img/recovery-password.svg" />
+                                    <p class="lead">Para recuperar a senha, entre em contato com o suporte.</p>
+                                    <p class="lead">suporte@sistemafit.com.br</p>
+                                    <a href="index.php">
                                         <i class="fas fa-arrow-left me-1"></i>
                                         Volte a tela de login
                                     </a>

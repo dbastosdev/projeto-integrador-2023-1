@@ -58,7 +58,7 @@ if(!empty($_SESSION["user-data"]["user"])){
                                                 <label class="form-check-label" for="inputRememberPassword">Lembrar senha</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="#">Esqueci senha de acesso</a> <!-- desabilitado --> 
+                                                <a class="small" href="password-recovery.php">Esqueci senha de acesso</a> <!-- desabilitado --> 
                                                 <button class="btn btn-primary">Entrar no sistema</button>
                                             </div>
                                         </form>
