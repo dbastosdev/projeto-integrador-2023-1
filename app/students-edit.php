@@ -83,31 +83,42 @@ if(empty($_SESSION["user-data"]["user"])){
                                 Editar status de alunos
                             </div>
                             <div class="card-body">
-                                <form>
+                                <!-- 
+                                    Aqui fazemos duas ações ao mesmo tempo. A primeira é recuperar os dados do estudante e 
+                                    preencher no formulário. 
+
+                                    A segunda, é configurar o formulário para enviar os dados editados ao student-action
+                                    para a realização do update. 
+                                -->
+                                <form action="./backend/student.action.php" method="post">
+                                    <!-- valor escondido para o action de update -->
+                                    <input type="hidden" name="action_type" value="update"/>
+                                    <!-- valor escondido para o id a ser atualizado -->
+                                    <input type="hidden" name="id" value="<?php echo($_SESSION['student-data']["id"]);?>"/>
                                     <div style="margin-bottom: 20px;" class="form-row">
                                       <div class="form-group col-md-6">
-                                        <label for="name">Nome Completo</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Email">
+                                        <label for="name">Nome Completo</label>                               <!-- recuperando o dado para edição vindo da session definida na classe -->
+                                        <input type="text" class="form-control" name="inputName" id="name" value="<?php echo($_SESSION['student-data']["name"]);?>">
                                       </div>
                                       <div class="form-group col-md-6">
                                         <label for="email">E-mail</label>
-                                        <input type="email" class="form-control" id="email" placeholder="Password">
+                                        <input type="email" class="form-control" name="inputEmail" id="email" value="<?php echo($_SESSION['student-data']["email"]);?>">
                                       </div>
                                       <div class="form-group col-md-6">
                                         <label for="modalidae">Modalidade</label>
-                                        <input type="text" class="form-control" id="modalidae" placeholder="Password">
+                                        <input type="text" class="form-control" name="inputSport" id="modalidae" value="<?php echo($_SESSION['student-data']["sport"]);?>">
                                       </div>
                                       <div class="form-group col-md-6">
                                         <label for="date">Dia de pagamento</label>
-                                        <input type="date" class="form-control" id="date" placeholder="Password">
+                                        <input type="date" class="form-control" name="inputStart" id="date" value="<?php echo($_SESSION['student-data']["start"]);?>">
                                       </div>
                                       <div class="form-group col-md-6">
                                         <label for="status">Status pagamento</label>
-                                        <select id="status" class="form-control">
-                                          <option selected>Selecione</option>
-                                          <option>Pago</option>
-                                          <option>Atrasado</option>
-                                          <option>Em dia</option>
+                                        <select name="inputPayment" id="status" class="form-control">
+                                          <!-- Abaixo é aplicado um if ternário para ficar selecionado com o atributo selected somente a opção igual ao do banco -->
+                                          <option <?php echo ($_SESSION['student-data']["payment-status"] == "pago") ? 'selected' : " ";?>>Pago</option>
+                                          <option <?php echo ($_SESSION['student-data']["payment-status"] == "atrasado") ? 'selected' : " ";?>>Atrasado</option>
+                                          <option <?php echo ($_SESSION['student-data']["payment-status"] == "em dia") ? 'selected' : " ";?>>Em dia</option>
                                         </select>
                                       </div>
                                     </div>

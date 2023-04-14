@@ -15,33 +15,50 @@ require_once('Student.class.php');
 // Instancia um objeto da classe login para usar seus métodos.
 $student = new Student($pdo);
 
-// ACTION DE LOGIN:
-if(!empty($_REQUEST['action_type']) && $_REQUEST['action_type'] == 'login'){
-   
-    // Segurança básica - filtra os inputs
-                        // método     // name do input    // método de filtro
-    $email = filter_input(INPUT_POST, 'inputEmail', FILTER_SANITIZE_SPECIAL_CHARS); 
-    $password = filter_input(INPUT_POST, 'inputPassword', FILTER_SANITIZE_SPECIAL_CHARS); 
-    
-    $login->login($email, $password);
-}
-
-// ACTION DE LOGOUT:
-if(!empty($_REQUEST['action_type']) && $_REQUEST['action_type'] == 'logout'){ 
-
-    $login->logout();
-}
-
-// ACTION DE CREATE NEW USER:
+// ACTION DE CREATE NEW STUDENT:
 if(!empty($_REQUEST['action_type']) && $_REQUEST['action_type'] == 'create'){
    
     // Segurança básica - filtra os inputs
-    $cnpj = filter_input(INPUT_POST, 'inputCnpj', FILTER_SANITIZE_SPECIAL_CHARS); 
-    $user = filter_input(INPUT_POST, 'inputUser', FILTER_SANITIZE_SPECIAL_CHARS); 
-    $companyName = filter_input(INPUT_POST, 'inputCompanyName', FILTER_SANITIZE_SPECIAL_CHARS); 
+    $name = filter_input(INPUT_POST, 'inputName', FILTER_SANITIZE_SPECIAL_CHARS); 
     $email = filter_input(INPUT_POST, 'inputEmail', FILTER_SANITIZE_SPECIAL_CHARS); 
-    $password = filter_input(INPUT_POST, 'inputPassword', FILTER_SANITIZE_SPECIAL_CHARS); 
+    $sport = filter_input(INPUT_POST, 'inputSport', FILTER_SANITIZE_SPECIAL_CHARS); 
+    $paymentDate = filter_input(INPUT_POST, 'inputStart', FILTER_SANITIZE_SPECIAL_CHARS); 
+    $paymentStatus = filter_input(INPUT_POST, 'inputPayment', FILTER_SANITIZE_SPECIAL_CHARS); 
     
-    $login->create($cnpj, $email,  $password, $user, $companyName);
+    $student->create($name, $email, $paymentDate, $paymentStatus, $sport);
 }
+
+// ACTION DE EDIT STUDENT:
+if(!empty($_REQUEST['action_type']) && $_REQUEST['action_type'] == 'edit'){
+   
+    // Segurança básica - filtra os inputs
+    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT); 
+
+    $student->edit($id);
+}
+
+// ACTION DE UPDATE STUDENT:
+if(!empty($_REQUEST['action_type']) && $_REQUEST['action_type'] == 'update'){
+  
+    // Segurança básica - filtra os inputs
+    $name = filter_input(INPUT_POST, 'inputName', FILTER_SANITIZE_SPECIAL_CHARS); 
+    $email = filter_input(INPUT_POST, 'inputEmail', FILTER_SANITIZE_SPECIAL_CHARS); 
+    $sport = filter_input(INPUT_POST, 'inputSport', FILTER_SANITIZE_SPECIAL_CHARS); 
+    $paymentDate = filter_input(INPUT_POST, 'inputStart', FILTER_SANITIZE_SPECIAL_CHARS); 
+    $paymentStatus = filter_input(INPUT_POST, 'inputPayment', FILTER_SANITIZE_SPECIAL_CHARS); 
+    $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT); 
+    
+    $student->update($name, $email, $paymentDate, $paymentStatus, $sport, $id);
+}
+
+// ACTION DE DELETE STUDENT:
+if(!empty($_REQUEST['action_type']) && $_REQUEST['action_type'] == 'delete'){
+    
+    // Segurança básica - filtra os inputs
+    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT); 
+
+    $student->delete($id);
+}
+
+
 

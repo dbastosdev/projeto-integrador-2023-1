@@ -111,7 +111,7 @@ $studentsLists = $student->index();
                                       <tr>
                                         <td><?php echo $s["name"];?></td>
                                         <td><?php echo $s["email"];?></td>
-                                        <td><?php echo $s["start"];?></td>
+                                        <td><?php echo implode("/",array_reverse(explode("-",$s["start"])));?></td>
                                         <td><?php echo $s["payment-status"];?></td>
                                         <td><?php echo $s["sport"];?></td>
                                         <td><a href="./backend/student.action.php?action_type=edit&id=<?php echo $s['id']; ?>" class="btn btn-dark">Editar</a></td>
@@ -133,30 +133,31 @@ $studentsLists = $student->index();
                             </div>
                             <div class="card-body">
                                 <form action="./backend/student.action.php" method="post">
+                                    <input type="hidden" name="action_type" value="create"/>
                                     <div style="margin-bottom: 20px;" class="form-row">
                                       <div class="form-group col-md-6">
                                         <label for="name">Nome Completo</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Email">
+                                        <input type="text" class="form-control" name="inputName" id="name" placeholder="Nome e Sobrenome">
                                       </div>
                                       <div class="form-group col-md-6">
                                         <label for="email">E-mail</label>
-                                        <input type="email" class="form-control" id="email" placeholder="Password">
+                                        <input type="email" class="form-control" name="inputEmail" id="email" placeholder="e-mail">
                                       </div>
                                       <div class="form-group col-md-6">
                                         <label for="modalidae">Modalidade</label>
-                                        <input type="text" class="form-control" id="modalidae" placeholder="Password">
+                                        <input type="text" class="form-control" name="inputSport" id="modalidae" placeholder="Esporte">
                                       </div>
                                       <div class="form-group col-md-6">
                                         <label for="date">Dia de pagamento</label>
-                                        <input type="date" class="form-control" id="date" placeholder="Password">
+                                        <input type="date" class="form-control" name="inputStart" id="date" placeholder="Data">
                                       </div>
                                       <div class="form-group col-md-6">
                                         <label for="status">Status pagamento</label>
-                                        <select id="status" class="form-control">
+                                        <select id="status" name="inputPayment" class="form-control">
                                           <option selected>Selecione</option>
-                                          <option>Pago</option>
-                                          <option>Atrasado</option>
-                                          <option>Em dia</option>
+                                          <option value="pago">Pago</option>
+                                          <option value="atrasado">Atrasado</option>
+                                          <option value="em dia">Em dia</option>
                                         </select>
                                       </div>
                                     </div>
