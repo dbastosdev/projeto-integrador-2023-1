@@ -82,7 +82,7 @@ class Login{
 
     
         $_SESSION['user'] = $result;
-        header("Location: ../dashboard.php");
+        header("Location: ../index.php");
         exit;
     }
 }   
