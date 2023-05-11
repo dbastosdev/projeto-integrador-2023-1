@@ -2,7 +2,7 @@
 Sistema de gerenciamento de academias - Parte 2
 
 <p align="center">
-  <img src="https://github.com/dbastosdev/projeto-integrador-2023-1/blob/main/dashboard.png" width="400"/>
+  <img src="https://github.com/dbastosdev/projeto-integrador-2023-1/blob/main/dashboard.png" width="800"/>
 </p>
 
 ## Componentes do Projeto: 
