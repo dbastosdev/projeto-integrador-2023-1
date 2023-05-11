@@ -1,6 +1,10 @@
 # projeto-integrador-2023-1
 Sistema de gerenciamento de academias - Parte 2
 
+<p align="center">
+  <img src="https://github.com/dbastosdev/projeto-integrador-2023-1/blob/main/dashboard.png" width="400"/>
+</p>
+
 ## Componentes do Projeto: 
 
 - Douglas Lima Bastos
