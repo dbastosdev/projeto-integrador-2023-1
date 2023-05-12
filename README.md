@@ -10,6 +10,11 @@ Sistema de gerenciamento de academias - Parte 2
 ## Componentes do Projeto: 
 
 - Douglas Lima Bastos
+- Fábio Correa dos Reis
+- Josefa Rafaela de Sousa
+- Lucas Pereira Mendes
+- Sergio Rizomar Silva de Souza
+- Gabriela Andréia de Azevedo
 
 ## Stack utilizada: 
 
