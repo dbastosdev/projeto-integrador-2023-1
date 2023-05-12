@@ -5,6 +5,8 @@ Sistema de gerenciamento de academias - Parte 2
   <img src="https://github.com/dbastosdev/projeto-integrador-2023-1/blob/main/dashboard.png" width="800"/>
 </p>
 
+## vídeo do projeto: https://www.youtube.com/watch?v=-DwVAgH4-h8
+
 ## Componentes do Projeto: 
 
 - Douglas Lima Bastos
