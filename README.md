@@ -39,7 +39,7 @@ Trata-se de um protótipo funcional single tenant para gestão de academias. Pri
 ```bash
 git clone https://github.com/dbastosdev/projeto-integrador-2023-1.git
 ```
-3. Configure o PHP, MySQl e O servidor de sua preferência. Pode ser utilizado docker ou alguma ferramenta como o xamp. 
+2. Configure o PHP, MySQl e O servidor de sua preferência. Pode ser utilizado docker ou alguma ferramenta como o xamp. 
 https://www.apachefriends.org/pt_br/index.html 
 3. Configure o banco de dados local com o seed e as tabelas iniciais. Ver o arquivo script.sql dentro de app/backend/db
 4. Inicie o servidor local e acesse localhost:8000 e será exibida a tela de login. Ao entrar com o usuário já registrado no seed, terá acesso ao sistema. 
